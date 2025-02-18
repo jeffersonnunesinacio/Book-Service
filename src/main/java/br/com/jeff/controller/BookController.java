@@ -4,6 +4,8 @@ import br.com.jeff.Proxy.CambioProxy;
 import br.com.jeff.model.Book;
 import br.com.jeff.repository.BookRepository;
 import br.com.jeff.response.Cambio;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.HashMap;
-
+@Tag(name = "Book endpoint")
 @RestController
 @RequestMapping("book-service")
 public class BookController {
@@ -27,6 +29,7 @@ public class BookController {
     @Autowired
     private CambioProxy proxy;
 
+    @Operation(summary = "Find a specific book by your ID")
     @GetMapping(value = "/{id}/{currency}")
     public Book findBook(
             @PathVariable ("id") Long id,
