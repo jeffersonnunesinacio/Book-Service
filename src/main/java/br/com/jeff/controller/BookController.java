@@ -6,6 +6,8 @@ import br.com.jeff.repository.BookRepository;
 import br.com.jeff.response.Cambio;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +21,7 @@ import java.util.HashMap;
 @RestController
 @RequestMapping("book-service")
 public class BookController {
+
 
     @Autowired
     private Environment environment;
